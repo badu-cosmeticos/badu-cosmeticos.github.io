@@ -1,0 +1,289 @@
+/* Contenedor para ubicar el botón a la derecha */
+.contenedor-toggle {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 0px; /* Quitamos el espacio de abajo */
+    padding: 5px;       /* Reducimos el espacio interno */
+}
+header {
+    margin-top: -10px; /* Un truco: margen negativo para subirlo un pelo más */
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 5px; /* Reduce el espacio entre el título y el catálogo */
+}
+
+/* El cuerpo del interruptor */
+.toggle-circle {
+    width: 50px;
+    height: 26px;
+    background-color: #ccc; /* Gris cuando está apagado */
+    border-radius: 50px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+/* La bolita blanca que se mueve */
+.toggle-circle::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    top: 3px;
+    left: 3px;
+    background-color: white;
+    transition: 0.4s;
+}
+
+/* CUANDO SE ACTIVA EL MODO OSCURO */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: white;
+}
+
+/* Cambia el color del fondo del botón a verde */
+body.dark-mode .toggle-circle {
+    background-color: #2ecc71;
+}
+
+/* Mueve la bolita a la derecha */
+body.dark-mode .toggle-circle::before {
+    transform: translateX(24px);
+}
+/* 1. CONFIGURACIÓN GENERAL Y MODO OSCURO */
+:root {
+    --bg-color: #f4f4f9;
+    --text-color: #333;
+}
+
+body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #f4f4f9;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: sans-serif;
+    margin: 0;
+    transition: background-color 0.3s;
+}
+
+/* Ajuste de la Navbar para que no se amontone */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px 5%; /* Reducimos el padding vertical */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box; /* Esto evita que el menú se salga de la pantalla */
+}
+
+/* Reducir el tamaño de los enlaces si tu pantalla es pequeña */
+.enlaces {
+    display: flex;
+    list-style: none;
+    gap: 15px; /* Menos espacio entre palabras */
+    padding: 0;
+}
+
+.enlaces a {
+    font-size: 0.9rem; /* Texto un poco más pequeño */
+}
+
+/* EL EMPUJE: Aumentamos el margen para que quepa el toggle y el título */
+main {
+    margin-top: 80px; /* Bajamos de 140px a 80px para que todo suba */
+    padding: 10px 20px; /* Reducimos el relleno superior e inferior */
+}
+
+/* 4. LA CUADRÍCULA (GRID) */
+.contenedor-productos {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centra todo el bloque */
+}
+
+/* 5. LAS TARJETAS DE PRODUCTO */
+.producto-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    color: #333; /* Para que el texto se vea siempre bien */
+}
+
+.producto-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.precio {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #27ae60;
+}
+/* --- ESTILO PARA EL LOGO BADU --- */
+.logo {
+    font-family: 'Playfair Display', serif; /* Si pegaste el link en el HTML se verá elegante */
+    font-size: 2rem;          /* Tamaño más grande para que destaque */
+    font-weight: 700;         /* Negrita profesional */
+    letter-spacing: 5px;      /* Espacio entre letras, clave para marcas de lujo */
+    text-transform: uppercase; /* Siempre en mayúsculas */
+    color: #333;              /* Color casi negro */
+    cursor: pointer;          /* Para que parezca un botón */
+    transition: 0.3s;         /* Suavidad al cambiar de color */
+}
+
+/* El toque de oro al pasar el ratón */
+.logo:hover {
+    color: #d4af37;           /* Cambia a color dorado */
+}
+
+/* Esto asegura que el texto dentro del logo no tenga estilos raros */
+.logo strong {
+    font-weight: inherit; 
+}
+/* Estilo del botón */
+.btn-comprar {
+    background-color: #333; /* Color negro/gris oscuro elegante */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px; /* Bordes muy redondeados */
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    transition: all 0.3s ease; /* Para que el cambio de color sea suave */
+    width: 100%; /* Para que ocupe todo el ancho de la tarjeta */
+    margin-top: 10px;
+}
+
+/* Efecto al pasar el ratón (Hover) */
+.btn-comprar:hover {
+    background-color: #d4af37; /* Cambia a dorado al tocarlo */
+    transform: translateY(-2px); /* Sube un poquito, da sensación de botón real */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+/* Contenedor de la imagen para que el zoom no se salga de los bordes */
+.producto-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.5s ease; /* Tiempo que tarda el zoom */
+}
+
+/* El efecto de zoom al pasar el ratón por la tarjeta entera */
+.producto-card:hover img {
+    transform: scale(1.1); /* Agranda la imagen un 10% */
+}
+
+/* Evitamos que la imagen se salga del cuadro al crecer */
+.producto-card {
+    overflow: hidden; /* Esto es CLAVE para el efecto zoom */
+    transition: box-shadow 0.3s ease;
+}
+
+.producto-card:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Sombra más fuerte al resaltar */
+}
+/* Esto asegura que el enlace no tenga subrayado y se comporte como bloque */
+a.btn-comprar {
+    text-decoration: none; /* Quita la línea de abajo */
+    display: inline-block; /* Permite que tenga ancho y alto */
+    text-align: center;    /* Centra el texto */
+    box-sizing: border-box;
+}
+/* Estilo para la nueva descripción */
+.descripcion-corta {
+    font-size: 0.9rem;
+    color: #666; /* Un gris suave */
+    margin: 5px 0 10px 0;
+    font-style: italic; /* Un toque delicado */
+    line-height: 1.2;
+}
+
+/* Asegura que la info tenga un poco de espacio */
+.producto-info {
+    padding: 15px;
+    text-align: center;
+}
+
+/* En modo oscuro, aclaramos un poco la descripción */
+body.dark-mode .descripcion-corta {
+    color: #bbb;
+}
+/* 1. Tarjeta como contenedor flexible */
+.producto-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; 
+    background-color: #fff; /* O el color que tengas */
+    border-radius: 15px;
+    overflow: hidden;
+    padding-bottom: 15px;
+}
+
+/* 2. El truco de las 2 líneas (Este es el que suele dar avisos) */
+.descripcion-corta {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Número de líneas a mostrar */
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+    font-size: 0.9rem;
+    color: #666;
+    margin: 10px;
+    height: 2.8em; /* Ajusta esto si el texto se corta raro */
+}
+
+/* --- ESTILOS DE INVENTARIO BADU --- */
+.stock-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.disponible {
+    background-color: #e8f8f5;
+    color: #16a085;
+    border: 1px solid #16a085;
+}
+
+.agotado-badge {
+    background-color: #fdedec;
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+}
+
+/* Botón cuando no hay stock */
+.btn-comprar.agotado {
+    background-color: #d5dbdb !important;
+    color: #7f8c8d !important;
+    cursor: not-allowed;
+    pointer-events: none; /* Bloquea el clic */
+    border: none;
+}
+
+/* Oscurece un poco la tarjeta si no hay stock */
+.producto-card.sin-stock {
+    filter: grayscale(0.5);
+    opacity: 0.8;
+}
