@@ -281,6 +281,22 @@ body.dark-mode .descripcion-corta {
     pointer-events: none; /* Bloquea el clic */
     border: none;
 }
+.btn-instagram {
+    display: inline-block;
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 10px 0;
+    transition: transform 0.3s;
+}
+
+.btn-instagram:hover {
+    transform: scale(1.1);
+    color: white;
+}
 
 /* Oscurece un poco la tarjeta si no hay stock */
 .producto-card.sin-stock {
